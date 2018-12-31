@@ -37,16 +37,16 @@ def customCallback(client, userdata, message):
 
 # Read in command-line parameters
 parser = argparse.ArgumentParser()
-parser.add_argument("-e", "--endpoint", action="store", required=True, dest="host", help="a3swkf9lqyz91k-ats.iot.us-west-2.amazonaws.com")
+parser.add_argument("-e", "--endpoint", action="store", required=True, dest="host", help="<endpoint-from-aws>")
 parser.add_argument("-r", "--rootCA", action="store", required=True, dest="rootCAPath", help="x509_root.crt")
-parser.add_argument("-c", "--cert", action="store", dest="certificatePath", help="7eb0037ce6-certificate.pem.crt.txt")
-parser.add_argument("-k", "--key", action="store", dest="privateKeyPath", help="7eb0037ce6-private.pem.key")
+parser.add_argument("-c", "--cert", action="store", dest="certificatePath", help="<cert.pem>")
+parser.add_argument("-k", "--key", action="store", dest="privateKeyPath", help="<private-key.pem>")
 #parser.add_argument("-p", "--port", action="store", dest="port", type=int, help="Port number override")
 parser.add_argument("-w", "--websocket", action="store_true", dest="useWebsocket", default=False,
                     help="Use MQTT over WebSocket")
 parser.add_argument("-id", "--clientId", action="store", dest="clientId", default="basicPubSub",
                     help="Targeted client id")
-parser.add_argument("-t", "--topic", action="store", dest="topic", default="sdk/test/Python", help="Payload/topic")
+parser.add_argument("-t", "--topic", action="store", dest="topic", default="<default-topic-path>", help="<topic-path>")
 parser.add_argument("-m", "--mode", action="store", dest="mode", default="both",
                     help="Operation modes: %s"%str(AllowedActions))
 parser.add_argument("-M", "--message", action="store", dest="message", default="Hello from the {} ".format(__device_name__),
